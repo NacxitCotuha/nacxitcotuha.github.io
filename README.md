@@ -1,3 +1,3 @@
-# nacxitcotuha.github.io
+# NacxitCotuha.github.io
 
-Mi portafolio
+Portafolio para postulaciones de trabajo xD
