@@ -1,0 +1,91 @@
+:root {
+    --hd-yellow: #FFE800;
+    --hd-black: #0A0A0A;
+    --hd-grey: #1A1A1A;
+    --hd-white: #E0E0E0;
+}
+
+body {
+    background-color: var(--hd-black);
+    color: var(--hd-white);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    overflow: hidden; /* Evita scroll general, el scroll será en el cuadro de info */
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    height: 100vh;
+    gap: 10px;
+    padding: 20px;
+}
+
+/* El cuadro de información con estilo de monitor táctico */
+.info-square {
+    border: 2px solid var(--hd-yellow);
+    background: rgba(26, 26, 26, 0.8);
+    padding: 20px;
+    height: 70vh;
+    overflow-y: auto;
+    position: relative;
+    /* clip-path: polygon(0 0, 100% 0, 100% 95%, 95% 100%, 0 100%); /* Corte en la esquina */
+}
+
+/* Estilos para el Menú de Idiomas en la esquina */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: var(--hd-grey);
+    border-bottom: 1px solid var(--hd-yellow);
+}
+
+.lang-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.lang-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: var(--hd-grey);
+    border: 1px solid var(--hd-yellow);
+    z-index: 100;
+}
+
+.lang-menu:hover .lang-dropdown {
+    display: block;
+}
+
+.lang-dropdown button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.lang-dropdown button:hover {
+    background: var(--hd-yellow);
+    color: var(--hd-black);
+}
+
+.tab-btn {
+    background: transparent;
+    border: 1px solid var(--hd-grey);
+    color: var(--hd-white);
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background: var(--hd-yellow);
+    color: var(--hd-black);
+    font-weight: bold;
+}

@@ -1,11 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>🌐 S.S.R. DEVELOPER | | ESTATUS</title>
 </head>
 <body>
-    <h1>Bienvenido a Mi Portafolio</h1>
+    <header class="top-bar">
+        <div class="status-indicator">S.S.R. DEVELOPER | CONNECTED</div>
+        <div class="lang-menu">
+            <button class="lang-btn" id="lang-selector">🌐 LANG_ES</button>
+            <div class="lang-dropdown">
+                <button onclick="changeLanguage('es')">[ES - ESPAÑOL]</button>
+                <button onclick="changeLanguage('en')">[EN - ENGLISH]</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="profile-sidebar">
+            <div class="profile-frame">
+                <img src="assets/img/tu-foto.jpg" alt="Operativo" class="profile-pic">
+            </div>
+            <div class="profile-info">
+                <h3><b>USER:</b> NACXIT COTUHA TREJO LOPEZ</h3>
+                <p class="rank">INGENIERO DE SISTEMAS SSR</p>
+            </div>
+        </aside>
+
+        <main class="content-area">
+            <nav class="tabs-menu">
+                <button class="tab-btn active" onclick="loadContent('experiencia')">EXPERIENCIA</button>
+                <button class="tab-btn" onclick="loadContent('habilidades')">HABILIDADES</button>
+                <button class="tab-btn" onclick="loadContent('proyectos')">PROYECTOS</button>
+                <button class="tab-btn" onclick="loadContent('datos')">REGISTROS</button>
+            </nav>
+
+            <section id="dynamic-content" class="info-square">
+                </section>
+        </main>
+    </div>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
