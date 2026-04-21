@@ -1,13 +1,7 @@
 {
-    "sample": "Super Creditos",
+    "sample": "Super Créditos",
     "title": "DATOS PERSONALES",
-    "personal_data_keys": [
-        "name",
-        "surname",
-        "age",
-        "email",
-        "phone"
-    ],
+    "personal_data_keys": ["name", "surname", "age", "email", "phone"],
     "personal_data": {
         "lbl_name": "NOMBRES:",
         "name": "NACXIT COTUHA",
@@ -20,18 +14,50 @@
         "lbl_phone": "TELÉFONO:",
         "phone": "+52 56 6771 6178"
     },
-    "btn_keys": [
-        "experience",
-        "skills",
-        "projects",
-        "hobbies"
-    ],
+    "btn_keys": ["experience", "skills", "projects", "hobbies"],
     "btn_data": {
         "experience": "EXPERIENCIA",
         "skills": "HABILIDADES",
         "projects": "PROYECTOS",
         "hobbies": "PASATIEMPOS"
+    },
+    "btn_content": {
+        "experience": [
+            {
+                "title": "App Developer Semi Sr",
+                "company": "Especialista en ERP, CRM y POS",
+                "time": "(08/2022 - 12/2025) 3 Años 4 Meses",
+                "description": "Lideré el desarrollo y mantenimiento de sistemas empresariales de misión crítica. Implementé arquitecturas modulares escalables que optimizaron los flujos de trabajo internos, reduciendo tiempos de procesamiento. Especializado en la integridad de datos en puntos de venta (POS) de alta transaccionalidad y la integración de módulos CRM/ERP personalizados."
+            },
+            {
+                "title": "Web Developer",
+                "company": "Freelance",
+                "time": "(01/2022 - 04/2022) 4 Meses",
+                "description": "Desarrollo integral de aplicaciones web modernas y responsivas. Me enfoqué en la creación de interfaces de usuario intuitivas y la optimización del rendimiento del lado del cliente, asegurando despliegues rápidos y arquitecturas de código limpio para facilitar el mantenimiento futuro."
+            }
+        ],
+        "skills": [
+            "Programación en Python (Asyncio), JavaScript (NodeJS), Java y C/C++",
+            "Desarrollo web con HTML, CSS, React y Tailwind",
+            "Administración avanzada de Linux (Arch, Fedora, CachyOS)",
+            "Contenerización con Docker y orquestación de servidores",
+            "Programación de microcontroladores (Arduino, ESP32) y sistemas embebidos",
+            "Bases de datos SQL y NoSQL",
+            "Control de versiones con Git",
+            "Metodologías ágiles (Scrum, Kanban)"
+        ],
+        "projects": [
+            {
+                "name": "Modular Discord Bot",
+                "desc": "Sistema de automatización de tareas y gestión de chat desarrollado en Python con discord.py, utilizando una estructura de comandos modular."
+            }
+        ],
+        "hobbies": [
+            "Natación", "Ciclismo", "Videojuegos",
+            "Configuración de servidores (Minecraft/Hytale)",
+            "Simuladores técnicos (American Truck Simulator)",
+            "Exploración de Distros Linux",
+            "Anime y Manga"
+        ]
     }
-
-    
 }

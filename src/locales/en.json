@@ -1,0 +1,63 @@
+{
+    "sample": "Super Credits",
+    "title": "PERSONAL DATA",
+    "personal_data_keys": ["name", "surname", "age", "email", "phone"],
+    "personal_data": {
+        "lbl_name": "FIRST NAME:",
+        "name": "NACXIT COTUHA",
+        "lbl_surname": "LAST NAME:",
+        "surname": "TREJO LÓPEZ",
+        "lbl_age": "AGE:",
+        "age": "27 YEARS",
+        "lbl_email": "EMAIL ADDRESS:",
+        "email": "cotuha@hotmail.com",
+        "lbl_phone": "PHONE NUMBER:",
+        "phone": "+52 56 6771 6178"
+    },
+    "btn_keys": ["experience", "skills", "projects", "hobbies"],
+    "btn_data": {
+        "experience": "EXPERIENCE",
+        "skills": "SKILLS",
+        "projects": "PROJECTS",
+        "hobbies": "HOBBIES"
+    },
+    "btn_content": {
+        "experience": [
+            {
+                "title": "Semi Sr App Developer",
+                "company": "ERP, CRM & POS Specialist",
+                "time": "(08/2022 - 12/2025) 3 Years 4 Months",
+                "description": "Led the development and maintenance of mission-critical enterprise systems. Implemented scalable modular architectures that optimized internal workflows and reduced processing times. Specialized in data integrity for high-transaction Point of Sale (POS) systems and the integration of customized CRM/ERP modules."
+            },
+            {
+                "title": "Web Developer",
+                "company": "Freelance",
+                "time": "(01/2022 - 04/2022) 4 Months",
+                "description": "End-to-end development of modern and responsive web applications. Focused on creating intuitive user interfaces and optimizing client-side performance, ensuring fast deployments and clean code architectures for easy future maintenance."
+            }
+        ],
+        "skills": [
+            "Python (Asyncio), JavaScript (NodeJS), Java, and C/C++ programming",
+            "Web development with HTML, CSS, React, and Tailwind",
+            "Advanced Linux Administration (Arch, Fedora, CachyOS)",
+            "Docker containerization and server orchestration",
+            "Microcontroller programming (Arduino, ESP32) and embedded systems",
+            "SQL and NoSQL Databases",
+            "Version control with Git",
+            "Agile methodologies (Scrum, Kanban)"
+        ],
+        "projects": [
+            {
+                "name": "Modular Discord Bot",
+                "desc": "Task automation and chat management system developed in Python with discord.py, featuring a modular command structure."
+            }
+        ],
+        "hobbies": [
+            "Swimming", "Cycling", "Gaming",
+            "Server Hosting (Minecraft/Hytale)",
+            "Technical Simulators (American Truck Simulator)",
+            "Linux Distro Hopping",
+            "Anime & Manga"
+        ]
+    }
+}

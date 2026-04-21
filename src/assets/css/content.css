@@ -40,3 +40,44 @@
     text-align: left;
     margin: 5px 0;
 }
+
+/* El cuadro de información con estilo de monitor táctico */
+.info-square {
+    border: 2px solid var(--hd-yellow);
+    background: rgba(26, 26, 26, 0.8);
+    padding: 20px;
+    height: 70vh;
+    overflow-y: auto;
+    position: relative;
+    /* clip-path: polygon(0 0, 100% 0, 100% 95%, 95% 100%, 0 100%); /* Corte en la esquina */
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.2rem;
+    background-color: var(--hd-yellow);
+    margin-left: 5px;
+    animation: blink 0.8s step-end infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.tab-btn {
+    background-color: var(--hd-black);
+    border: 1px solid var(--hd-yellow);
+    color: var(--hd-white);
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background: var(--hd-yellow);
+    color: var(--hd-black);
+    font-weight: bold;
+}

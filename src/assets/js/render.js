@@ -17,10 +17,27 @@ const renderUI = (data) => {
         console.log(`Actualizando ${btnId} con:`, data.btn_data[key]);
         document.getElementById(btnId).innerText = data.btn_data[key];
     }
+
+    loadContent('experience'); // Cargamos la pestaña de experiencia por defecto
 }
 
-const loadContent = async (content) => {
-    console.log(`Cargando contenido para: ${content}`);
+const loadContent = async (key) => {
+    console.log(`Cargando contenido para: ${key}`);
+    const container = document.getElementById('dynamic-content');
+    // container.innerText = "<p>Cargando...</p>"; // Indicador de carga
+    container.innerHTML = `<pre style="font-family: inherit;white-space: pre-wrap;">Cargando...<span class="typing-cursor"></span></pre>`; // Indicador de carga
+
+    if (key === 'cv') {
+        loadCV();
+        return;
+    }
+}
+
+const loadCV = async () => {
+    const langSelector = document.getElementById('lang-selector');
+    const lang = langSelector.value;
+    console.log(`Cargando CV en idioma: ${lang}`);
+    // langSelector.setAttribute("value", lang);
 }
 
 export { renderUI, loadContent };
