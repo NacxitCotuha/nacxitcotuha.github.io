@@ -1,0 +1,37 @@
+{
+    "sample": "Super Creditos",
+    "title": "DATOS PERSONALES",
+    "personal_data_keys": [
+        "name",
+        "surname",
+        "age",
+        "email",
+        "phone"
+    ],
+    "personal_data": {
+        "lbl_name": "NOMBRES:",
+        "name": "NACXIT COTUHA",
+        "lbl_surname": "APELLIDOS:",
+        "surname": "TREJO LÓPEZ",
+        "lbl_age": "EDAD:",
+        "age": "27 AÑOS",
+        "lbl_email": "CORREO ELECTRÓNICO:",
+        "email": "cotuha@hotmail.com",
+        "lbl_phone": "TELÉFONO:",
+        "phone": "+52 56 6771 6178"
+    },
+    "btn_keys": [
+        "experience",
+        "skills",
+        "projects",
+        "hobbies"
+    ],
+    "btn_data": {
+        "experience": "EXPERIENCIA",
+        "skills": "HABILIDADES",
+        "projects": "PROYECTOS",
+        "hobbies": "PASATIEMPOS"
+    }
+
+    
+}

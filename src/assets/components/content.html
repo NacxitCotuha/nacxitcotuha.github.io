@@ -1,0 +1,30 @@
+<div class="dashboard-container">
+    <aside class="profile-sidebar">
+        <div class="profile-frame">
+            <img src="/src/assets/images/bg.jpg" alt="Operativo" class="profile-pic"/>
+        </div>
+        <div class="profile-info">
+            <h2 class="title" id="title"></h2>
+            <p><b class="data" id="lbl_name"></b><br/><span id="name"></span></p>
+            <p><b class="data" id="lbl_surname"></b><br/><span id="surname"></span></p>
+            <p><b class="data" id="lbl_age"></b><br/><span id="age"></span></p>
+            <p><b class="data" id="lbl_email"></b><br/><span id="email"></span></p>
+            <p><b class="data" id="lbl_phone"></b><br/><span id="phone"></span></p>
+            <p><b class="data">
+                <a href="https://www.linkedin.com/in/nacxit-cotuha-t-009561189/" style="color: white;">LinkedIn</a>
+            </b></p>
+        </div>
+    </aside>
+
+    <main class="content-area">
+        <nav class="tabs-menu">
+            <button id="btn_experience" class="tab-btn active"  onclick="loadContent('experience')"></button>
+            <button id="btn_skills" class="tab-btn"  onclick="loadContent('skills')"></button>
+            <button id="btn_projects" class="tab-btn"  onclick="loadContent('projects')"></button>
+            <button id="btn_hobbies" class="tab-btn"  onclick="loadContent('hobbies')"></button>
+        </nav>
+
+        <section id="dynamic-content" class="info-square">
+            </section>
+    </main>
+</div>

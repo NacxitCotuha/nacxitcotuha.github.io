@@ -1,0 +1,46 @@
+body {
+    background-image: var(--body-bg-image);
+    background-size: cover;          /* Cubre toda la pantalla sin deformarse */
+    background-position: center;     /* Centra la imagen */
+    background-attachment: fixed;    /* El fondo se queda quieto mientras el contenido fluye */
+    background-repeat: no-repeat;
+    background-color: var(--hd-black); /* Color de respaldo si la imagen falla */
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    color: var(--hd-white);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* display: flex;
+    flex-direction: column; */
+    min-height: 100vh; /* Ocupa el 100% de la ventana */
+}
+
+.content-placeholder {
+    height: 100vh; /* Estira las cajas para que tengan la misma altura */
+}
+
+/* El cuadro de información con estilo de monitor táctico */
+.info-square {
+    border: 2px solid var(--hd-yellow);
+    background: rgba(26, 26, 26, 0.8);
+    padding: 20px;
+    height: 70vh;
+    overflow-y: auto;
+    position: relative;
+    /* clip-path: polygon(0 0, 100% 0, 100% 95%, 95% 100%, 0 100%); /* Corte en la esquina */
+}
+
+.tab-btn {
+    background-color: var(--hd-black);
+    border: 1px solid var(--hd-yellow);
+    color: var(--hd-white);
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background: var(--hd-yellow);
+    color: var(--hd-black);
+    font-weight: bold;
+}

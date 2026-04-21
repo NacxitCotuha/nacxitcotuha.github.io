@@ -1,0 +1,8 @@
+:root {
+    --hd-yellow: #FFE800;
+    --hd-black: #0A0A0A;
+    --hd-grey: #1A1A1A;
+    --hd-white: #E0E0E0;
+
+    --body-bg-image: url('/src/assets/images/bg.jpg');
+}
