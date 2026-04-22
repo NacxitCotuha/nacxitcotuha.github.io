@@ -18,6 +18,7 @@
 
 .profile-frame {
     width: 100%;
+    min-height: 150px;
     max-height: 200px;
     border-radius: 5%;
     border: 2px solid var(--hd-yellow);
@@ -29,6 +30,7 @@
 
 .profile-pic {
     width: 100%;
+    min-height: 150px;
     max-height: 200px;
     object-fit: cover;
     border-radius: 5%;
@@ -60,6 +62,26 @@
     color: var(--hd-white);
 }
 
+.style-title {
+    color: var(--hd-yellow);
+    font-weight: bold;
+    display: block; /* Para que el título ocupe su propia línea */
+}
+
+.style-meta {
+    color: #ffffff;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.style-desc {
+    color: #e0e0e0;
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* El cursor ahora debe heredar el color del contenedor o ser amarillo por defecto */
 .typing-cursor {
     display: inline-block;
     width: 10px;
@@ -67,7 +89,6 @@
     background-color: var(--hd-yellow);
     margin-left: 2px;
     animation: blink 0.8s step-end infinite;
-    vertical-align: middle;
 }
 
 @keyframes blink {
@@ -88,4 +109,10 @@
     background: var(--hd-yellow);
     color: var(--hd-black);
     font-weight: bold;
+}
+
+.cv-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
 }

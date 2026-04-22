@@ -14,6 +14,7 @@ const loadLanguage = async (lang) => {
         window.data_json = data; // Guardamos globalmente para acceso desde otros módulos
         // console.log(`/src/locales/${lang}.json - Status: ${auxData}`);
         // console.log(data);
+
         renderUI(data);
     } catch (error) {
         console.error("Error al cargar el idioma:", error);

@@ -20,32 +20,37 @@ const renderUI = (data) => {
         document.getElementById(btnId).innerText = data.btn_data[key];
     }
 
-    loadContent('experience'); // Cargamos la pestaña de experiencia por defecto
+    loadContent("experience"); // Cargamos la pestaña de experiencia por defecto
 }
 
 const loadContent = async (key) => {
     console.log(`Cargando contenido para: ${key}`);
+    updateActiveTab(key);
     const container = document.getElementById('dynamic-content');
     clearInterval(typingInterval); // Si el usuario hace clic rápido, cancelamos la animación anterior
     container.innerText = ""; // Limpiamos el contenido anterior
     // container.innerText = "<p>Cargando...</p>"; // Indicador de carga
     // container.innerHTML = `<pre style="font-family: inherit;white-space: pre-wrap;">Cargando...<span class="typing-cursor"></span></pre>`; // Indicador de carga
 
-    typeWriterEffect(container, "Cargando...");
+    typeWriterEffect(container, [{ text: "Cargando...", className: "style-desc" }]);
 
     if (key === 'cv') { loadCV(container); return; }
 
     const rawContent = data_json.btn_content[key];
-    let textToType = "";
+    let segments = []; // Aquí guardaremos los fragmentos con su estilo
 
     if (Array.isArray(rawContent)) {
         rawContent.forEach(item => {
             if (typeof item === 'object') {
-                textToType += `> ${item.title || item.name}\n`;
-                textToType += `  ${item.company || ''} ${item.time || ''}\n`;
-                textToType += `  ${item.description || item.desc}\n\n`;
+                // Título en Amarillo y Negrita
+                segments.push({ text: `> ${item.title || item.name}\n`, className: "style-title" });
+                // Compañía y Fecha en Blanco y Negrita
+                segments.push({ text: `  ${item.company || ''} ${item.time || ''}\n`, className: "style-meta" });
+                // Descripción normal
+                segments.push({ text: `  ${item.description || item.desc}\n\n`, className: "style-desc" });
             } else {
-                textToType += `• ${item}\n`;
+                // Para Habilidades/Hobbies usamos un estilo genérico o el de descripción
+                segments.push({ text: `• ${item}\n`, className: "style-desc" });
             }
         });
     }
@@ -53,54 +58,88 @@ const loadContent = async (key) => {
     clearInterval(typingInterval); // Si el usuario hace clic rápido, cancelamos la animación anterior
     container.innerText = ""; // Limpiamos el contenido anterior
 
-    typeWriterEffect(container, textToType);
+    typeWriterEffect(container, segments);
+};
 
+const updateActiveTab = (key) => {
+    // 1. Buscamos todos los botones con la clase 'tab-btn'
+    const buttons = document.querySelectorAll('.tab-btn');
+    
+    // 2. Quitamos la clase 'active' a todos
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    // 3. Se la ponemos al botón correspondiente (usando el ID que pusiste)
+    const activeBtn = document.getElementById(`btn_${key}`);
+    if (activeBtn) {
+        activeBtn.classList.add('active');
+    }
 }
 
 const loadCV = async (container) => {
     const langSelector = document.getElementById('lang-selector');
     const lang = langSelector.value;
     console.log(`Cargando CV en idioma: ${lang}`);
-    clearInterval(typingInterval); // Si el usuario hace clic rápido, cancelamos la animación anterior
-    container.innerText = ""; // Limpiamos el contenido anterior
-
-    typeWriterEffect(container, "404 NOT FOUND\n\nLo siento, el CV no está disponible en este momento. Por favor, contáctame para más información.");
+    // loadError(container, "Lo siento, el CV no está disponible en este momento. Por favor, contáctame para más información.");
+    if (lang === 'en') {
+        container.innerHTML = `<iframe class="cv-frame" src="/src/assets/pdf/CV_EN.pdf"></iframe>`;
+    } else {
+        container.innerHTML = `<iframe class="cv-frame" src="/src/assets/pdf/CV_ES.pdf"></iframe>`;
+    }
     // langSelector.setAttribute("value", lang);
 }
 
-const typeWriterEffect = (container, text) => {
-    let index = 0;
+const loadError = (container, message) => {
+    clearInterval(typingInterval);
+    container.innerText = "";
+    const segments = [
+        { text: "404 NOT FOUND\n\n", className: "style-title" },
+        { text: message, className: "style-desc" }
+    ];
+    typeWriterEffect(container, segments);
+};
 
-    // 1. Creamos un único contenedor para el texto y el cursor
-    const wrapper = document.createElement('p');
+const typeWriterEffect = (container, segments) => {
+    const wrapper = document.createElement('pre');
     wrapper.className = "typing-wrapper";
     
-    // 2. Creamos el span donde se escribirá el texto
-    const textSpan = document.createElement('span');
-    
-    // 3. Creamos el cursor
     const cursor = document.createElement('span');
     cursor.className = 'typing-cursor';
     
-    // 4. Metemos todo dentro del wrapper y el wrapper al contenedor
-    wrapper.appendChild(textSpan);
-    wrapper.appendChild(cursor);
     container.appendChild(wrapper);
+    wrapper.appendChild(cursor);
+
+    let segmentIndex = 0;
+    let charIndex = 0;
+    let currentSpan = null;
 
     typingInterval = setInterval(() => {
-        if (index < text.length) {
-            textSpan.textContent += text.charAt(index); // Escribimos en el span
-            index++;
-            
-            // Scroll automático para no perder de vista el cursor
+        // Si ya no hay más segmentos, detenemos todo
+        if (segmentIndex >= segments.length) {
+            clearInterval(typingInterval);
+            return;
+        }
+
+        // Si estamos empezando un segmento nuevo, creamos su span
+        if (charIndex === 0) {
+            currentSpan = document.createElement('span');
+            currentSpan.className = segments[segmentIndex].className;
+            // Insertamos el span justo antes del cursor para que el cursor siempre esté al final
+            wrapper.insertBefore(currentSpan, cursor);
+        }
+
+        const currentText = segments[segmentIndex].text;
+
+        // Escribimos el caracter actual
+        if (charIndex < currentText.length) {
+            currentSpan.textContent += currentText.charAt(charIndex);
+            charIndex++;
             container.scrollTop = container.scrollHeight;
         } else {
-            // Terminó la escritura, pero NO borramos nada. 
-            // El cursor sigue ahí porque es un hijo del wrapper.
-            clearInterval(typingInterval);
-            console.log("Escritura de la Super Tierra finalizada.");
+            // Pasamos al siguiente segmento
+            segmentIndex++;
+            charIndex = 0;
         }
-    }, 15); // Velocidad de escritura (en ms)
+    }, 15);
 };
 
 export { renderUI, loadContent };
